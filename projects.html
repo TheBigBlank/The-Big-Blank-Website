@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - The Big Blank</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header header-small">
+        <nav class="main-nav container">
+            <div class="logo">
+                <a href="index.html">
+                    <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 5C14.075 5 5 14.075 5 25C5 35.925 14.075 45 25 45C35.925 45 45 35.925 45 25C45 14.075 35.925 5 25 5ZM25 8C34.39 8 42 15.61 42 25C42 34.39 34.39 42 25 42C15.61 42 8 34.39 8 25C8 15.61 15.61 8 25 8Z" fill="currentColor"/>
+                        <path d="M20 20L30 30M30 20L20 30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <span>The Big Blank</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="projects.html" class="active">Our Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <div class="page-hero container">
+            <h1 class="animate-fade-in-up">Our Projects</h1>
+            <p class="animate-fade-in-up delay-200">A showcase of innovation, creativity, and technical excellence.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="projects-section" class="section-padded">
+            <div class="container">
+                <h2 class="animate-on-scroll">Explore Our Portfolio</h2>
+
+                <div class="project-filters animate-on-scroll delay-100">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="online">Online</button>
+                    <button class="filter-btn" data-filter="beta">Beta</button>
+                    <button class="filter-btn" data-filter="coming soon">Coming Soon</button>
+                    <button class="filter-btn" data-filter="under maintenance">Under Maintenance</button>
+                    <button class="filter-btn" data-filter="offline">Offline</button>
+                </div>
+
+                <div id="projects-container" class="projects-grid">
+                    <!-- Projects will be loaded here by JavaScript -->
+                    <p class="loading-message">Loading projects...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 5C14.075 5 5 14.075 5 25C5 35.925 14.075 45 25 45C35.925 45 45 35.925 45 25C45 14.075 35.925 5 25 5ZM25 8C34.39 8 42 15.61 42 25C42 34.39 34.39 42 25 42C15.61 42 8 34.39 8 25C8 15.61 15.61 8 25 8Z" fill="currentColor"/>
+                        <path d="M20 20L30 30M30 20L20 30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <span>The Big Blank</span>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github-square"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2023 The Big Blank. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
