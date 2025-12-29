@@ -1,78 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;500;800&display=swap');
+
 :root {
-    --bg: #0a0a0a;
-    --card-bg: #111;
-    --text: #ececec;
-    --accent: #007AFF; /* Modern Tech Blue */
-    --gray: #888;
+    --bg: #050505;
+    --card-bg: rgba(20, 20, 20, 0.6);
+    --text-main: #e0e0e0;
+    --text-dim: #888;
+    --accent: #00f2ff; /* Cyan Tech Glow */
+    --accent-2: #7000ff; /* Purple Depth */
+    --border: rgba(255, 255, 255, 0.1);
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 50% -20%, var(--accent-2) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-/* Navbar */
+/* Header & Navigation */
 header {
-    padding: 2rem 10%;
-    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 10%;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
+    font-family: var(--font-mono);
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     letter-spacing: -1px;
-    color: var(--accent);
+    color: #fff;
+    text-transform: uppercase;
 }
+
+.logo::before { content: "> "; color: var(--accent); }
 
 #nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 #nav-links a {
     text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#nav-links a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
     letter-spacing: 1px;
+}
+
+/* Main Content Wrapper */
+main {
+    max-width: 850px;
+    margin: 60px auto;
+    padding: 0 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Markdown Element Styling */
+#content {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Terminal Style Path Indicator */
+#content::before {
+    content: "> ~/the-big-blank/home";
+    display: block;
+    font-family: var(--font-mono);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: var(--font-mono);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+h2::after {
+    content: "";
+    height: 1px;
+    flex-grow: 1;
+    background: var(--border);
+    margin-left: 20px;
+}
+
+/* Text & Paragraphs */
+p {
+    margin-bottom: 1.2rem;
+    color: var(--text-main);
+    font-size: 1.05rem;
+    font-weight: 300;
+}
+
+/* Markdown Color Utility Classes */
+/* Usage in Markdown: <span class="cyan">Text</span> */
+.cyan { color: #00f2ff; text-shadow: 0 0 8px rgba(0,242,255,0.4); }
+.purple { color: #bc44ff; }
+.yellow { color: #ffea00; }
+.red { color: #ff4d4d; }
+.green { color: #00ff88; }
+.bold { font-weight: 800; color: #fff; }
+
+/* Links in Markdown */
+#content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
     transition: 0.3s;
 }
 
-#nav-links a:hover { color: var(--accent); }
-
-/* Main Content Area */
-main {
-    padding: 4rem 10%;
-    min-height: 70vh;
-    max-width: 900px;
-    margin: 0 auto;
+#content a:hover {
+    background: var(--accent);
+    color: #000;
 }
 
-/* Markdown Styling */
-#content h1 { font-size: 3rem; margin-bottom: 1rem; }
-#content h2 { margin-top: 2rem; color: var(--accent); }
-#content p { margin-bottom: 1rem; color: #ccc; }
-#content a { color: var(--accent); }
-#content code { background: #222; padding: 2px 6px; border-radius: 4px; }
+/* Code Blocks */
+code {
+    font-family: var(--font-mono);
+    background: rgba(255,255,255,0.05);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 3rem;
-    font-size: 0.8rem;
-    color: var(--gray);
-    border-top: 1px solid #222;
+    padding: 4rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.loader { text-align: center; margin-top: 50px; }
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Loader Animation */
+.loader {
+    font-family: var(--font-mono);
+    text-align: center;
+    color: var(--accent);
+    letter-spacing: 5px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
