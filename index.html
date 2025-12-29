@@ -4,30 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Big Blank | Tech Studio</title>
+    <!-- Performance: Preconnect to fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Markdown Parser -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Inline Theme Logic for instant loading -->
+    <script>
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
 </head>
 <body>
+    <!-- Background Animated Blobs -->
+    <div class="glow-bg"></div>
 
-    <header>
-        <nav id="navbar">
-            <div class="logo">THE BIG BLANK</div>
-            <ul id="nav-links">
-                <!-- Links will be loaded here -->
-            </ul>
+    <header id="top-nav">
+        <nav class="container">
+            <a href="#home" class="logo">TBB<span class="dot">.</span></a>
+            
+            <div class="nav-actions">
+                <ul id="menu"></ul>
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.243 16.243l.707.707M7.757 7.757l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+                    <svg class="moon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 118.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <main id="content">
-        <!-- Markdown content will load here -->
-        <div class="loader">Loading...</div>
+    <main id="app-root" class="container">
+        <article id="markdown-content" class="glass-card">
+            <div class="loading-state">Initializing Workspace...</div>
+        </article>
     </main>
 
-    <footer>
-        <p>&copy; 2024 The Big Blank Tech Studio</p>
+    <footer class="container">
+        <p>© <span id="year"></span> The Big Blank Studio. / Build 0.2.5</p>
     </footer>
 
+    <!-- Markdown Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
