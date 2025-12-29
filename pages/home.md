@@ -1,7 +1,10 @@
-# Welcome to The Big Blank
-We are a creative tech studio focused on building the future.
+# Welcome to <span class="t-gradient">The Big Blank</span>
 
-## Our Philosophy
-We start with a **Blank** canvas and build something **Big**.
+We are a high-performance tech studio. Our systems are built on <span class="t-blue">reliability</span> and <span class="t-purple">creative freedom</span>.
 
-[View our projects](#projects)
+## Our Stack
+- **Frontend:** Vanilla JS / CSS3
+- **Backend:** <span class="t-red">Classified</span>
+- **Design:** Modern Glassmorphism
+
+[Explore Projects](#projects)
